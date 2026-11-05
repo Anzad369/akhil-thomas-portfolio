@@ -17,12 +17,14 @@ export default function Home() {
   useEffect(() => {
     async function fetchReels() {
       try {
-        const query = `*[_type == "reel"] | order(_createdAt desc) {
-          _id,
-          title,
-          category,
-          "videoUrl": videoFile.asset->url
+
+        const query = `*[_type == "reel"] | order(orderRank asc) {
+        _id,
+        title,
+        category,
+        "videoUrl": videoFile.asset->url
         }`
+
         const data = await client.fetch(query)
         setReels(data)
       } catch (error) {

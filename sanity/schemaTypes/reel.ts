@@ -1,29 +1,28 @@
-import { defineType, defineField } from 'sanity'
+import { defineField, defineType } from 'sanity'
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list'
 
-export const reelType = defineType({
+export const reel = defineType({
   name: 'reel',
-  title: 'Reels',
+  title: 'Reel',
   type: 'document',
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'reel' }),
     defineField({
       name: 'title',
-      title: 'Project / Client Title',
+      title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
-      title: 'Category (e.g., Commercial, Music Video, Travel)',
+      title: 'Category',
       type: 'string',
     }),
     defineField({
       name: 'videoFile',
-      title: 'Upload Video File (MP4)',
+      title: 'Video File',
       type: 'file',
-      options: {
-        accept: 'video/mp4,video/quicktime',
-      },
-      validation: (Rule) => Rule.required(),
+      options: { accept: 'video/*' },
     }),
   ],
 })
