@@ -17,7 +17,6 @@ export default function Home() {
   useEffect(() => {
     async function fetchReels() {
       try {
-
         const query = `*[_type == "reel"] | order(orderRank asc) {
         _id,
         title,
@@ -109,7 +108,7 @@ export default function Home() {
                     <div key={reel._id} className="group flex flex-col">
                       <div className="relative aspect-[9/16] bg-zinc-100 rounded-xl overflow-hidden border border-zinc-200 shadow-sm group-hover:shadow-xl transition-all duration-500">
                         <video
-                          src={reel.videoUrl}
+                          src={`${reel.videoUrl}#t=0.001`}
                           controls
                           playsInline
                           preload="metadata"
