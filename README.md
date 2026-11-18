@@ -2,6 +2,10 @@
 
 A minimal, high-performance video editing portfolio built with **Next.js**, **Tailwind CSS**, and **Sanity CMS**.
 
+## Live Demo
+
+Production URL: [Akhil-Thomas-Portfolio](https://akhil-thomas-portfolio.vercel.app/)
+
 ## Stack
 
 - **Frontend:** Next.js (App Router), React, Tailwind CSS
